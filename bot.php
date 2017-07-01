@@ -14,14 +14,14 @@ $input = json_decode(file_get_contents('php://input'), true);
 
 $senderId = $input['entry'][0]['messaging'][0]['sender']['id'];
 $messageText = $input['entry'][0]['messaging'][0]['message']['text'];
-$postback = $input['entry'][0]['messaging'][0]['postback']['payload'];
+$recievedPayload = $input['entry'][0]['messaging'][0]['postback']['payload'];
 
 $response = '';
 
 // default answer
 $answer = "I don't understand. Ask me 'hi'.";
 
-if($postback != null) {
+if($recievedPayload != null) {
   // implement response from recieved payload
 } else {
   if($messageText == "hi" || $messageText == "Hi") {
@@ -37,7 +37,7 @@ curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $response);
 curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
 
-if(!empty($input['entry'][0]['messaging'][0]['message']) || !empty($postback)) {
+if(!empty($input['entry'][0]['messaging'][0]['message']) || !empty($recievedPayload)) {
   curl_exec($ch);
 } 
 
