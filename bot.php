@@ -42,4 +42,6 @@ if(!empty($input['entry'][0]['messaging'][0]['message']) || !empty($recievedPayl
 } 
 
 curl_close($ch);
+
+die();
 ?>
