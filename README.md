@@ -22,6 +22,14 @@ $bot->run(function($reqBody,$bot) {
 
 When running the bot, the bot instance will return the request body from the request and an instance of itself.  Use the returned instance to build and send responses
 
+### Request Parsing
+
+The Request Body contains the following values:
+
+- senderId: The id of the sender
+- message: The message sent to the bot
+- payload: The recieved payload
+
 ## Responses
 
 ### Sending Responses
@@ -33,7 +41,7 @@ $bot->sendResponse($resp);
 ### Simple Response
 
 ```php
-$resp = $bot->buildSimpleResponse('recipient_id','Message Text');
+$resp = $bot->buildSimpleResponse('Message Text',recipient_id);
 ```
 
 ### Card
@@ -51,9 +59,10 @@ $resp = $bot->buildRichResponse('recpient_id',[$card]);
 
 ### Buttons
 
-```php
-$btn = $bot->buildButton();
+The default type for a button should be 'web_url', the 'payload' parameter is optional and is only used when the button has a postback value.  
 
+```php
+$btn = $bot->buildButton('title','type','url','payload');
 ```
 
 List view support coming soon...
