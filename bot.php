@@ -39,9 +39,11 @@ class Bot {
 		$messageText = $input['entry'][0]['messaging'][0]['message']['text'];
 		$recievedPayload = $input['entry'][0]['messaging'][0]['postback']['payload'];
 
-		$reqBody = ['senderId'=>$senderId,'message'=>$messageText,'payload'=>$recievedPayload];
+		if(!empty(messageText)) {
+			$reqBody = ['senderId'=>$senderId,'message'=>$messageText,'payload'=>$recievedPayload];
 		
-		$r($reqBody,$this);	
+			$r($reqBody,$this);		
+		}
 	}
 
 	public function sendResponse($response) {
