@@ -27,7 +27,7 @@ class Bot {
 
 	public function run($r) {
 		// check token at setup
-		if ($_REQUEST['hub_verify_token'] === self::$verifyToken) {
+		if (@$_REQUEST['hub_verify_token'] === self::$verifyToken) {
 		  echo $_REQUEST['hub_challenge'];
 		  exit;
 		}
