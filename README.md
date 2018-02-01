@@ -14,7 +14,7 @@ The first parameter when created a new bot instance is the verify token, the sec
 $bot = new Bot('verify_token','access_token');
 
 $bot->run(function($reqBody,$bot) {
-	$bot->sendResponse($bot->buildSimpleResponse($reqBody['senderId'],'mesage text');
+	$bot->sendResponse($bot->buildSimpleResponse($reqBody['senderId'],'mesage text'));
 });
 ```
 
