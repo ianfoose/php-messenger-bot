@@ -123,7 +123,7 @@ class Bot {
 		];
 	}
 
-	public function buildSimpleResponse($message='Default Message',$recipient) {
+	public function buildSimpleResponse($recipient,$message='Default Message') {
 		return [
 			'recipient'=>['id'=>$recipient],
 			'message'=>['text'=>$message]
