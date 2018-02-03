@@ -39,7 +39,7 @@ $bot->sendResponse($resp);
 ### Simple Response
 
 ```php
-$resp = $bot->buildSimpleResponse('Message Text',recipient_id);
+$resp = $bot->buildSimpleResponse($recipient_id,'Message Text');
 ```
 
 ### Card
